@@ -2,10 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 import {addNote, deleteNote} from "./javascripts/actions/index.js";
 
-// this gets ALL redux states (state arg)
-// into notes.
-// now, connectedApp will have access to redux' notes states as notes
-
 const mapStateToProps = state => {
   return {
     notes: state
@@ -14,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addNote: note => dispatch(addNote(note)), // this addNote is from action/index. It is really an object with type="ADD_NOTE"
+    addNote: note => dispatch(addNote(note)),
     deleteNote: note => dispatch(deleteNote(note))
   }
 }
@@ -47,13 +43,12 @@ class ConnectedApp extends React.Component {
     deleteNote(id);
   }
   render() {
-    // this props comes from mapStateToProps
     const { notes } = this.props;
     const {title} = this.state;
     return (
     <div>
       <div>
-        <h2>Noteflowy</h2>
+        <h2>Notes</h2>
 
         {notes.map((note, index) => {
           return <li key={note.id}>{note.title} ({note.id}) <button onClick={() => this.handleDelete(note.id)}>Delete</button></li>
