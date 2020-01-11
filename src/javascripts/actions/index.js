@@ -4,7 +4,7 @@ let id = 0;
 export const addNote = notes => {
   id++;
   return {
-  type: ADD_NOTE,
+    type: ADD_NOTE,
     notes: {...notes, id: id}
   }
 }
