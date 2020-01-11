@@ -1,11 +1,11 @@
 import {ADD_NOTE, DELETE_NOTE} from "./types";
 let id = 0;
 
-export const addNote = notes => {
+export const addNote = note => {
   id++;
   return {
     type: ADD_NOTE,
-    notes: {...notes, id: id}
+    notes: {...note, id: id}
   }
 }
 
