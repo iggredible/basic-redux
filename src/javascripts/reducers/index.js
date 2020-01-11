@@ -1,14 +1,13 @@
 import {ADD_NOTE, DELETE_NOTE} from "../actions/types";
 
-
-  const initialState = [
+const initialState = [
     {title: "First Note", id: 0}
   ]
 
 function rootReducer(state = initialState, action){
   switch(action.type){
     case ADD_NOTE:
-      return [...state, action.payload]
+      return [...state, action.notes]
 
     case DELETE_NOTE:
       return state.filter(note => note.id !== action.id)
