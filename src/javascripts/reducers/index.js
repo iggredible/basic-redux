@@ -7,7 +7,7 @@ const initialState = [
 function rootReducer(state = initialState, action){
   switch(action.type){
     case ADD_NOTE:
-      return [...state, action.note]
+      return [...state, action.notes]
 
     case DELETE_NOTE:
       return state.filter(note => note.id !== action.id)
